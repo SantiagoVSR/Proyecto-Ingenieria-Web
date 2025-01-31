@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #84c68c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6aa671;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <h2>Crear Cuenta</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <select name="tipoUsuario" required>
+                <option value="" disabled selected>Selecciona tu rol</option>
+                <option value="DueñoMascota">Dueño de Mascota</option>
+                <option value="Proveedor">Proveedor de Servicios</option>
+            </select>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
